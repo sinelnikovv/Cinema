@@ -12,15 +12,10 @@ import MenuItem from "@mui/material/MenuItem";
 import pages from "../../pages/pages";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { ColorModeContext } from "../../App";
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 
 function Header() {
-  const theme = useTheme();
-  const colorMode = React.useContext(ColorModeContext);
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -88,17 +83,7 @@ function Header() {
               display: { xs: "flex", md: "none", justifyContent: "flex-end" },
             }}
           >
-            <IconButton
-          sx={{ ml: 1 }}
-          onClick={colorMode.toggleColorMode}
-          color="inherit"
-        >
-          {theme.palette.mode === "dark" ? (
-            <Brightness7Icon />
-          ) : (
-            <Brightness4Icon />
-          )}
-        </IconButton>
+           
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -157,17 +142,7 @@ function Header() {
           </Box>
 
           <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
-            <IconButton
-          sx={{ ml: 1 }}
-          onClick={colorMode.toggleColorMode}
-          color="inherit"
-        >
-          {theme.palette.mode === "dark" ? (
-            <Brightness7Icon />
-          ) : (
-            <Brightness4Icon />
-          )}
-        </IconButton>
+           
             <Avatar alt="User" src="/static/images/avatar/2.jpg" />
           </Box>
         </Toolbar>

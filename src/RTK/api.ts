@@ -59,13 +59,38 @@ export const api = createApi({
         list,
         startYear,
       }) =>
-        `titles/x/upcoming?${titleType ? `titleType=${titleType}` : ""}${
+        `titles?${titleType ? `titleType=${titleType}` : ""}${
           year ? `&year=${year}` : ""
         }${genre ? `&genre=${genre}` : ""}${info ? `&info=${info}` : ""}${
           endYear ? `&endYear=${endYear}` : ""
         }${limit ? `&limit=${limit}` : ""}${sort ? `&sort=${sort}` : ""}${
           page ? `&page=${page}` : ""
-        }${list ? `&page=${list}` : ""}${
+        }${list ? `&list=${list}` : ""}${
+          startYear ? `&startYear=${startYear}` : ""
+        }`,
+    }),
+
+    getRandomTitles: build.query({
+      query: ({        
+        year,
+        genre,
+        info,
+        endYear,
+        titleType,
+        limit,
+        sort,        
+        list,
+        startYear,
+      }) =>
+        `titles/random?${
+          titleType ? `titleType=${titleType}` : ""}${
+          year ? `&year=${year}` : ""}${
+          genre ? `&genre=${genre}` : ""}${
+          info ? `&info=${info}` : ""}${
+          endYear ? `&endYear=${endYear}` : ""}${
+          limit ? `&limit=${limit}` : ""}${
+          sort ? `&sort=${sort}` : ""}${          
+          list ? `&list=${list}` : ""}${
           startYear ? `&startYear=${startYear}` : ""
         }`,
     }),
@@ -143,4 +168,5 @@ export const {
   useGetGenresQuery,
   useGetListsQuery,
   useGetTitleTypesQuery,
+  useGetRandomTitlesQuery
 } = api;
